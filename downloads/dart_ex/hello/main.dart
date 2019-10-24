@@ -1,3 +1,3 @@
 main(){
-    print("hello");
+    print("喔耶");
 }
