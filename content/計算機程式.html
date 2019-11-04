@@ -138,7 +138,7 @@ init_mathjax();
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='計算機程式.html'>計算機程式</a></li>
+                     <li><a href='計算機程式.html'>計算機程式</a><li class='has-children'><a href='Work.html'>Work</a><ul class='dropdown'><li><a href='上課作業.html'>上課作業</a><li><a href='上課筆記.html'>上課筆記</a></li>
                       </ul>
                 </nav>
               </div>
@@ -149,58 +149,38 @@ init_mathjax();
           </div>
           
         </header>
-    <div id="tipue_search_content"> <br /><h1>計算機程式</h1>
-<p><img alt="" height="226" src="./../images/2019050269445097.jpg" width="431"/></p>
+    <div id="tipue_search_content"> <a href='Work.html'>Next</a> >> Work<br /><h1>計算機程式</h1>
 <p>倉儲: <a href="https://github.com/40823201/cp2019">https://github.com/40823201/cp2019</a></p>
 <p>課程網頁:<a href="http://mde.tw/cp2019/content/index.html">http://mde.tw/cp2019/content/index.html</a></p>
 <p>Gist:<a href="https://gist.github.com/40823201/d9f7bc5daa98a11de2e1fd3c02a469d9">https://gist.github.com/40823201/d9f7bc5daa98a11de2e1fd3c02a469d9</a></p>
 <p>Dartpad:<a href="https://dartpad.dartlang.org/?id=d9f7bc5daa98a11de2e1fd3c02a469d9">https://dartpad.dartlang.org/?id=d9f7bc5daa98a11de2e1fd3c02a469d9</a></p>
-<p>原始碼</p>
-<pre class="brush:dart;auto-links:false;toolbar:false" contenteditable="false">void main() {
-    print("喔耶");
-}</pre>
-<p><br/><iframe height="600" src="https://dartpad.dartlang.org/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/dart_ex/hello&amp;theme=dark" width="800"></iframe></p>
-<p>原始碼</p>
-<pre class="brush:dart;auto-links:false;toolbar:false" contenteditable="false">int i;
-int sum;
-
-main(){
-  sum = 0;
-  for(i=1;i &lt;= 10 ;i++){
-    sum += i;
-    print("$sum");
-  }
-  print('sum = $sum');
-}</pre>
-<p><iframe height="600" src="https://dartpad.dartlang.org/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/dart_ex/for&amp;theme=dark" width="800"></iframe></p>
-<p>原始碼</p>
-<pre class="brush:dart;auto-links:false;toolbar:false" contenteditable="false">rungeKutta(t0, x0, t, h) {
-  int n = ((t - t0) / h).toInt();
-  double x = x0;
-  for (int i = 1; i &lt;= n; i++) {
-    double k1 = h * dxdt(t0, x);
-    double k2 = h * dxdt(t0 + 0.5 * h, x + 0.5 * k1);
-    double k3 = h * dxdt(t0 + 0.5 * h, x + 0.5 * k2);
-    double k4 = h * dxdt(t0 + h, x + k3);
-    x = x + (1.0 / 6.0) * (k1 + 2 * k2 + 2 * k3 + k4);
-    t0 = t0 + h;
-  }
-  return x;
+<script>
+function getDart(dirname){
+    source = "https://dartpad.github.io/embed-dart.html?gh_owner=40823201&gh_repo=cp2019&gh_path=downloads/dart_ex/" + dirname + "&theme=dark";
+    document.getElementById("iframe").src = source ;
 }
-
-dxdt(t, x) {
-  return ((t - x) / 2);
+function getHtmlDart(dirname){
+    source = "https://dartpad.github.io/embed-html.html?gh_owner=40823201&gh_repo=cp2019&gh_path=downloads/dart_ex/" + dirname + "&theme=dark";
+document.getElementById("iframe").src = source ;
 }
-
-main() {
-  num t0 = 0;
-  num x = 1;
-  num t = 2;
-  double h = 0.2;
-  print('The value of x at t=$t is: ${rungeKutta(t0, x, t, h)}');
+function getFlutter(dirname){
+    source = "https://dartpad.github.io/embed-flutter.html?gh_owner=40823201&gh_repo=cp2019&gh_path=downloads/dart_ex/" + dirname + "&theme=dark";
+document.getElementById("iframe").src = source ;
 }
-</pre>
-<p><br/><iframe height="600" src="https://dartpad.dartlang.org/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/dart_ex/mass_spring_damping&amp;theme=dark" width="800"></iframe></p><br /> </div>
+function largest(){
+document.getElementById("iframe").width = document.body.clientWidth ;
+document.getElementById("iframe").height = document.body.clientWidth*0.5 ;
+}
+function original(){
+document.getElementById("iframe").width = 800 ;
+document.getElementById("iframe").height = 600 ;
+}
+</script>
+<!-- 取 Dart 程式的按鈕 -->
+<p><button onclick="largest()">放大</button> <button onclick="original()">回復</button> <button onclick="getDart('hello')">Hello</button> <button onclick="getDart('for')">For Loop</button> <button onclick="getDart('Mass_Spring_Damping')">Mass_Spring_Damping</button></p>
+<!-- 內建放入的 Dart 原始碼 -->
+<p><iframe height="600" id="iframe" src="https://dartpad.dartlang.org/embed-dart.html?gh_owner=mdecourse&amp;gh_repo=cp2019&amp;gh_path=downloads/dart_ex/mass_spring_damping&amp;theme=dark" width="800"></iframe></p>
+<br /> <a href='Work.html'>Next</a> >> Work</div>
         
     <!-- footer -->
       <div class="container">

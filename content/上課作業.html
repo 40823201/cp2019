@@ -103,6 +103,7 @@ init_mathjax();
 </head>
 <body>
 <div class='container'><nav>
+        
     <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -148,4 +149,94 @@ init_mathjax();
           </div>
           
         </header>
-    </nav><section><h1>Site Map</h1><div id="tipue_search_content"></div><ul><li><a href='計算機程式.html'>計算機程式</a><li><a href='Work.html'>Work</a><ul><li><a href='上課作業.html'>上課作業</a><li><a href='上課筆記.html'>上課筆記</a></li></ul></section></div></body></html>
+    <div id="tipue_search_content">Work << <a href='Work.html'>Previous</a> <a href='上課筆記.html'>Next</a> >> 上課筆記<br /><h1>上課作業</h1>
+<p><img alt="" height="226" src="./../images/2019050269445097.jpg" width="431"/></p>
+<p>原始碼</p>
+<pre class="brush:dart;auto-links:false;toolbar:false" contenteditable="false">void main() {
+    print("喔耶");
+}</pre>
+<p><br/><iframe height="600" src="https://dartpad.dartlang.org/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/dart_ex/hello&amp;theme=dark" width="800"></iframe></p>
+<p>原始碼</p>
+<pre class="brush:dart;auto-links:false;toolbar:false" contenteditable="false">int i;
+int sum;
+
+main(){
+  sum = 0;
+  for(i=1;i &lt;= 10 ;i++){
+    sum += i;
+    print("$sum");
+  }
+  print('sum = $sum');
+}</pre>
+<p><iframe height="600" src="https://dartpad.dartlang.org/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/dart_ex/for&amp;theme=dark" width="800"></iframe></p>
+<p>原始碼</p>
+<pre class="brush:dart;auto-links:false;toolbar:false" contenteditable="false">rungeKutta(t0, x0, t, h) {
+  int n = ((t - t0) / h).toInt();
+  double x = x0;
+  for (int i = 1; i &lt;= n; i++) {
+    double k1 = h * dxdt(t0, x);
+    double k2 = h * dxdt(t0 + 0.5 * h, x + 0.5 * k1);
+    double k3 = h * dxdt(t0 + 0.5 * h, x + 0.5 * k2);
+    double k4 = h * dxdt(t0 + h, x + k3);
+    x = x + (1.0 / 6.0) * (k1 + 2 * k2 + 2 * k3 + k4);
+    t0 = t0 + h;
+  }
+  return x;
+}
+
+dxdt(t, x) {
+  return ((t - x) / 2);
+}
+
+main() {
+  num t0 = 0;
+  num x = 1;
+  num t = 2;
+  double h = 0.2;
+  print('The value of x at t=$t is: ${rungeKutta(t0, x, t, h)}');
+}
+</pre>
+<p><br/><iframe height="600" src="https://dartpad.dartlang.org/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/dart_ex/mass_spring_damping&amp;theme=dark" width="800"></iframe></p>
+<br />Work << <a href='Work.html'>Previous</a> <a href='上課筆記.html'>Next</a> >> 上課筆記</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        </body></html>
+        
