@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>嵌入 Dartpad</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+  <link href="./" rel="canonical" />
+
+  <!-- Feed -->
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="CP2019 計算機程式 Full Atom Feed" />
+          <link href="./feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="CP2019 計算機程式 Categories Atom Feed" />
+
+  <link href="./theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="./theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
+
+  
+    <link href="./theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+    <link href="./embedded-dartpad-to-blog.html" rel="canonical" />
+
+        <meta name="description" content="在此利用 https://dartpad.github.io 將位於downloads目錄中的dart程式導入 <--PELICAN_END_SUMMARY--> 放大 回復 Hello For Loop Mass_Spring_Damping Next >> Work...">
+
+        <meta name="author" content="yen">
+
+        <meta name="tags" content="2018FallCP">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="CP2019 計算機程式"/>
+<meta property="og:title" content="嵌入 Dartpad"/>
+<meta property="og:description" content="在此利用 https://dartpad.github.io 將位於downloads目錄中的dart程式導入 <--PELICAN_END_SUMMARY--> 放大 回復 Hello For Loop Mass_Spring_Damping Next >> Work..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./embedded-dartpad-to-blog.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2018-09-10 11:00:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/yen.html">
+<meta property="article:section" content="Misc"/>
+<meta property="article:tag" content="2018FallCP"/>
+<meta property="og:image" content="./theme/images/post-bg.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "嵌入 Dartpad",
+  "headline": "嵌入 Dartpad",
+  "datePublished": "2018-09-10 11:00:00+08:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "yen",
+    "url": "./author/yen.html"
+  },
+  "image": "./theme/images/post-bg.jpg",
+  "url": "./embedded-dartpad-to-blog.html",
+  "description": "在此利用 https://dartpad.github.io 將位於downloads目錄中的dart程式導入 <--PELICAN_END_SUMMARY--> 放大 回復 Hello For Loop Mass_Spring_Damping Next >> Work..."
+}
+</script>
+<script type="text/javascript" src="./../data/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../data/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../data/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../data/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../data/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../data/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../data/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../data/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../data/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../data/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../data/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../data/syntaxhighlighter/shBrushLua.js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "./../data/syntaxhighlighter/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "./../data/syntaxhighlighter/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+
+<!-- for LaTeX equations -->
+<script src="./../data/math/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+    <!--
+
+              <li role="presentation"><a href="./pages/about/">About</a></li>
+      -->
+
+            <li><a href="./pages/about/index.html">About</span></a></li>
+            
+            <li><a href="./archives.html">Archives</span></a></li>
+            
+            <li><a href="./categories.html">Categories</span></a></li>
+            
+            <li><a href="./tags.html">Tags</span></a></li>
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="./index.html" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">嵌入 Dartpad</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="./author/yen.html">Yen</a>
+            | <time datetime="週一 10 九月 2018">週一 10 九月 2018</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="background-image: url('./theme/images/post-bg.jpg')">
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+<section class="search">
+      <form class="navbar-search" action="./search.html">
+      <input type="text"  placeholder="Search" name="q" id="tipue_search_input" required>
+    </form>
+</section>
+
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <p>在此利用 https://dartpad.github.io 將位於downloads目錄中的dart程式導入</p>
+<p>&lt;--PELICAN_END_SUMMARY--&gt;</p>
+<p></script>
+<!-- 取 Dart 程式的按鈕 -->
+<p><button onclick="largest()">放大</button> <button onclick="original()">回復</button> <button onclick="getDart('hello')">Hello</button> <button onclick="getDart('for')">For Loop</button> <button onclick="getDart('Mass_Spring_Damping')">Mass_Spring_Damping</button></p>
+<!-- 內建放入的 Dart 原始碼 -->
+<p><iframe height="600" id="iframe" src="https://dartpad.dartlang.org/embed-dart.html?gh_owner=mdecourse&amp;gh_repo=cp2019&amp;gh_path=downloads/dart_ex/mass_spring_damping&amp;theme=dark" width="800"></iframe></p>
+<br /> <a href='Work.html'>Next</a> &gt;&gt; Work</div></p>
+<div class="highlight"><pre><span></span><span class="o">&lt;!--</span> <span class="nv">footer</span> <span class="o">--&gt;</span>
+  <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">container</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">row pt-3 mx-auto</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>
+        <span class="o">&lt;!--</span> <span class="nv">Link</span> <span class="nv">back</span> <span class="nv">to</span> <span class="nv">Colorlib</span> <span class="nv">can</span><span class="s1">&#39;</span><span class="s">t be removed. Template is licensed under CC BY 3.0. --&gt;</span>
+        <span class="nv">Copyright</span> <span class="o">&amp;</span><span class="nv">copy</span><span class="c1">;&lt;script&gt;document.write(new Date().getFullYear());&lt;/script&gt; All rights reserved | This template is made with &lt;i class=&quot;icon-heart&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; by &lt;a href=&quot;https://colorlib.com&quot; target=&quot;_blank&quot; &gt;Colorlib&lt;/a&gt;</span>
+        <span class="o">&lt;!--</span> <span class="nv">Link</span> <span class="nv">back</span> <span class="nv">to</span> <span class="nv">Colorlib</span> <span class="nv">can</span><span class="s1">&#39;</span><span class="s">t be removed. Template is licensed under CC BY 3.0. --&gt;</span>
+        <span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+<span class="o">&lt;!--</span> <span class="k">for</span> <span class="nv">footer</span> <span class="o">--&gt;</span>
+
+    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span> <span class="o">&lt;!--</span> <span class="k">for</span> <span class="nv">site</span> <span class="nv">wrap</span> <span class="o">--&gt;</span>
+        <span class="o">&lt;!--</span> <span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">../cmsimde/static/chimper/js/jquery-3.3.1.min.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span> <span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">../cmsimde/static/chimper/js/jquery-ui.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">../cmsimde/static/chimper/js/popper.min.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">../cmsimde/static/chimper/js/bootstrap.min.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">../cmsimde/static/chimper/js/owl.carousel.min.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">../cmsimde/static/chimper/js/jquery.stellar.min.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">../cmsimde/static/chimper/js/jquery.countdown.min.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">../cmsimde/static/chimper/js/jquery.magnific-popup.min.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">../cmsimde/static/chimper/js/bootstrap-datepicker.min.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">../cmsimde/static/chimper/js/aos.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+        <span class="o">&lt;!--</span>
+        <span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">../cmsimde/static/chimper/js/typed.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nv">script</span><span class="o">&gt;</span>
+                <span class="nv">var</span> <span class="nv">typed</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Typed</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">.typed-words</span><span class="s1">&#39;</span>, {
+                <span class="nv">strings</span>: [<span class="s2">&quot;</span><span class="s">Web Apps</span><span class="s2">&quot;</span>,<span class="s2">&quot;</span><span class="s"> WordPress</span><span class="s2">&quot;</span>,<span class="s2">&quot;</span><span class="s"> Mobile Apps</span><span class="s2">&quot;</span>],
+                <span class="nv">typeSpeed</span>: <span class="mi">80</span>,
+                <span class="nv">backSpeed</span>: <span class="mi">80</span>,
+                <span class="nv">backDelay</span>: <span class="mi">4000</span>,
+                <span class="nv">startDelay</span>: <span class="mi">1000</span>,
+                <span class="k">loop</span>: <span class="nv">true</span>,
+                <span class="nv">showCursor</span>: <span class="nv">true</span>
+                }<span class="ss">)</span><span class="c1">;</span>
+                <span class="o">&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+        <span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">../cmsimde/static/chimper/js/main.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+</pre></div>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=嵌入 Dartpad&amp;url=./embedded-dartpad-to-blog.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=./embedded-dartpad-to-blog.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=./embedded-dartpad-to-blog.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="./tag/2018fallcp.html">2018FallCP</a>                </aside>
+
+                <div class="clear"></div>
+
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <a class="post-nav-next" href="./2018-Fall-32-bit-Windows.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-left"></i>
+                                <h2 class="post-nav-title">2018 Fall CP 課程</h2>
+                            <p class="post-nav-excerpt">2018 Fall 一開始, 在一台已經 10 年的 32 位元的 Windows 7 操作系統中工作. 可攜的 Python 3.7.0 仍然可以配置, Leo...</p>
+                        </section>
+                    </a>
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+  
+  <script type="text/javascript" src="./theme/js/script.js"></script>
+
+ 
+
+
+</body>
+</html>
