@@ -149,8 +149,36 @@ init_mathjax();
           </div>
           
         </header>
-    <div id="tipue_search_content">計算機程式 << <a href='計算機程式.html'>Previous</a> <a href='W3.html'>Next</a> >> W3<br /><h1>Work</h1>
-<br />計算機程式 << <a href='計算機程式.html'>Previous</a> <a href='W3.html'>Next</a> >> W3</div>
+    <div id="tipue_search_content">W6 << <a href='W6.html'>Previous</a> <a href='上課筆記.html'>Next</a> >> 上課筆記<br /><h1>W7</h1>
+<p>原始碼</p>
+<pre class="brush:dart;auto-links:false;toolbar:false" contenteditable="false">rungeKutta(t0, x0, t, h) {
+  int n = ((t - t0) / h).toInt();
+  double x = x0;
+  for (int i = 1; i &lt;= n; i++) {
+    double k1 = h * dxdt(t0, x);
+    double k2 = h * dxdt(t0 + 0.5 * h, x + 0.5 * k1);
+    double k3 = h * dxdt(t0 + 0.5 * h, x + 0.5 * k2);
+    double k4 = h * dxdt(t0 + h, x + k3);
+    x = x + (1.0 / 6.0) * (k1 + 2 * k2 + 2 * k3 + k4);
+    t0 = t0 + h;
+  }
+  return x;
+}
+
+dxdt(t, x) {
+  return ((t - x) / 2);
+}
+
+main() {
+  num t0 = 0;
+  num x = 1;
+  num t = 2;
+  double h = 0.2;
+  print('The value of x at t=$t is: ${rungeKutta(t0, x, t, h)}');
+}
+</pre>
+<p><br/><iframe height="600" src="https://dartpad.dartlang.org/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/dart_ex/mass_spring_damping&amp;theme=dark" width="800"></iframe></p>
+<br />W6 << <a href='W6.html'>Previous</a> <a href='上課筆記.html'>Next</a> >> 上課筆記</div>
         
     <!-- footer -->
       <div class="container">
