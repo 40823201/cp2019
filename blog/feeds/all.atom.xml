@@ -73,5 +73,13 @@
         &lt;span class="o"&gt;--&amp;gt;&lt;/span&gt;
         &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;script&lt;/span&gt; &lt;span class="nv"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;../cmsimde/static/chimper/js/main.js&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;script&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</content><category term="2018FallCP"></category></entry><entry><title>期中考</title><link href="https://40823201.github.io/cp2019/blog/midterm.html" rel="alternate"></link><published>2018-09-10T11:00:00+08:00</published><updated>2018-09-10T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:40823201.github.io,2018-09-10:/cp2019/blog/midterm.html</id><content type="html">&lt;p&gt;期中考&lt;/p&gt;
-&lt;p&gt;https://www.youtube.com/watch?v=_CbytFJU-cg&amp;amp;feature=youtu.be &lt;/p&gt;
-&lt;p&gt;無法執行ffmpeg，故未完成內建字幕與浮水印，找到解決方法後，會盡快補上且更改影片，請老師見諒。&lt;/p&gt;</content><category term="2018FallCP"></category></entry></feed>
+&lt;p&gt;第一次上傳(無字幕無浮水印，僅有CC字幕)&lt;/p&gt;
+&lt;p&gt;https://youtu.be/_CbytFJU-cg &lt;/p&gt;
+&lt;p&gt;遇到問題:無法執行ffmpeg
+解決方法:找出隨身系統中，ffmpeg檔所在位置，並在cmd中打上所在位置再執行一次。&lt;/p&gt;
+&lt;p&gt;第二次上傳(無浮水印)&lt;/p&gt;
+&lt;p&gt;https://youtu.be/6OZTQdMrGZI &lt;/p&gt;
+&lt;p&gt;遇到問題:無法用上字幕方式上浮水印
+解決方法:在Aegisub中先打上浮水印並調整好位置後，利用ShareX再錄一次。&lt;/p&gt;
+&lt;p&gt;第三次上傳(最終檔)&lt;/p&gt;
+&lt;p&gt;https://youtu.be/lKS8ot7ggpQ&lt;/p&gt;</content><category term="2018FallCP"></category></entry></feed>
