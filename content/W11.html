@@ -149,36 +149,43 @@ init_mathjax();
           </div>
           
         </header>
-    <div id="tipue_search_content">W6 << <a href='W6.html'>Previous</a> <a href='期中考.html'>Next</a> >> 期中考<br /><h1>W7</h1>
-<p>原始碼</p>
-<pre class="brush:dart;auto-links:false;toolbar:false" contenteditable="false">rungeKutta(t0, x0, t, h) {
-  int n = ((t - t0) / h).toInt();
-  double x = x0;
-  for (int i = 1; i &lt;= n; i++) {
-    double k1 = h * dxdt(t0, x);
-    double k2 = h * dxdt(t0 + 0.5 * h, x + 0.5 * k1);
-    double k3 = h * dxdt(t0 + 0.5 * h, x + 0.5 * k2);
-    double k4 = h * dxdt(t0 + h, x + k3);
-    x = x + (1.0 / 6.0) * (k1 + 2 * k2 + 2 * k3 + k4);
-    t0 = t0 + h;
-  }
-  return x;
+    <div id="tipue_search_content">期中考 << <a href='期中考.html'>Previous</a> <a href='上課筆記.html'>Next</a> >> 上課筆記<br /><h1>W11</h1>
+<script>
+function getDart(dirname){
+    source = "https://dartpad.github.io/embed-dart.html?gh_owner=40823201&gh_repo=cp2019&gh_path=downloads/new/" + dirname + "&theme=dark";
+    document.getElementById("iframe").src = source ;
 }
 
-dxdt(t, x) {
-  return ((t - x) / 2);
+function getHtmlDart(dirname){
+    source = "https://dartpad.github.io/embed-html.html?gh_owner=40823201&gh_repo=cp2019&gh_path=downloads/new/"  + dirname + "&theme=dark";
+document.getElementById("iframe").src = source ;
 }
 
-main() {
-  num t0 = 0;
-  num x = 1;
-  num t = 2;
-  double h = 0.2;
-  print('The value of x at t=$t is: ${rungeKutta(t0, x, t, h)}');
+function getFlutter(dirname){
+    source = "https://dartpad.github.io/embed-flutter.html?gh_owner=40823201&gh_repo=cp2019&gh_path=downloads/new/"  + dirname + "&theme=dark";
+document.getElementById("iframe").src = source ;
 }
-</pre>
-<p><br/><iframe height="600" src="https://dartpad.dartlang.org/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/dart_ex/mass_spring_damping&amp;theme=dark" width="800"></iframe></p>
-<br />W6 << <a href='W6.html'>Previous</a> <a href='期中考.html'>Next</a> >> 期中考</div>
+
+function largest(){
+document.getElementById("iframe").width = document.body.clientWidth ;
+document.getElementById("iframe").height = document.body.clientWidth*0.5 ;
+}
+
+function original(){
+document.getElementById("iframe").width = 800 ;
+document.getElementById("iframe").height = 600 ;
+}
+</script>
+<!-- 取 Dart 程式的按鈕 -->
+<h4>純 Dart 程式</h4>
+<p><button onclick="getDart('hello')">Hello</button> <button onclick="getDart('for')">For Loop</button> <button onclick="getDart('sum')">Sum</button> <button onclick="getDart('runge_kutta')">Runge-Kutta</button> <button onclick="getDart('rk_ex1')">RK ex1</button> <button onclick="getDart('mass_spring_damping')">Mass Spring Damping </button> <button onclick="getDart('temperature')">temperature</button></p>
+<h4>Html 程式</h4>
+<p><button onclick="getHtmlDart('roc_flag')">ROC Flag</button> <button onclick="getHtmlDart('grid')">Grid</button> <button onclick="getHtmlDart('xyplot')">X-Y Plot</button> <button onclick="getHtmlDart('slithery')">Slithery</button></p>
+<h4>Flutter 程式</h4>
+<p><button onclick="getFlutter('flutter1')">Flutter1</button> <button onclick="getFlutter('flutter2')">Flutter2</button> <button onclick="getFlutter('flutter3')">Flutter3</button></p>
+<!-- 內建放入的 Dart 原始碼 -->
+<p><button onclick="largest()">放大</button> <button onclick="original()">回復</button></p>
+<p><iframe height="600" id="iframe" src="https://dartpad.dartlang.org/embed-dart.html?gh_owner=s40523111&amp;gh_repo=cp2019&amp;gh_path=new/mass_spring_damping&amp;theme=dark" width="800"></iframe></p><br />期中考 << <a href='期中考.html'>Previous</a> <a href='上課筆記.html'>Next</a> >> 上課筆記</div>
         
     <!-- footer -->
       <div class="container">
