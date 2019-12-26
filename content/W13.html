@@ -150,7 +150,40 @@ init_mathjax();
           
         </header>
     <div id="tipue_search_content">W12 << <a href='W12.html'>Previous</a> <a href='W14.html'>Next</a> >> W14<br /><h1>W13</h1>
-<br />W12 << <a href='W12.html'>Previous</a> <a href='W14.html'>Next</a> >> W14</div>
+<script>
+function getDart(dirname){
+    source = "https://dartpad.github.io/embed-dart.html?gh_owner=40823201&gh_repo=cp2019&gh_path=downloads/new/" + dirname + "&theme=dark";
+    document.getElementById("iframe").src = source ;
+}
+
+function getHtmlDart(dirname){
+    source = "https://dartpad.github.io/embed-html.html?gh_owner=40823201&gh_repo=cp2019&gh_path=downloads/new/"  + dirname + "&theme=dark";
+document.getElementById("iframe").src = source ;
+}
+
+function getFlutter(dirname){
+    source = "https://dartpad.github.io/embed-flutter.html?gh_owner=40823201&gh_repo=cp2019&gh_path=downloads/new/"  + dirname + "&theme=dark";
+document.getElementById("iframe").src = source ;
+}
+
+function largest(){
+document.getElementById("iframe").width = document.body.clientWidth ;
+document.getElementById("iframe").height = document.body.clientWidth*0.5 ;
+}
+
+function original(){
+document.getElementById("iframe").width = 800 ;
+document.getElementById("iframe").height = 600 ;
+}
+</script>
+<!-- 取 Dart 程式的按鈕 -->
+<h4>純 Dart 程式</h4>
+<p><button onclick="getDart('temp1')">temp1</button></p>
+<h4>Html 程式</h4>
+<p><button onclick="getHtmlDart('temp2')">temp2</button></p>
+<!-- 內建放入的 Dart 原始碼 -->
+<p><button onclick="largest()">放大</button> <button onclick="original()">回復</button></p>
+<p><iframe height="600" id="iframe" src="https://dartpad.dartlang.org/embed-dart.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/new/temp1&amp;theme=dark" width="900"></iframe></p><br />W12 << <a href='W12.html'>Previous</a> <a href='W14.html'>Next</a> >> W14</div>
         
     <!-- footer -->
       <div class="container">
