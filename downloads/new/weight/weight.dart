@@ -1,9 +1,9 @@
 lbtokg(num lb){
-return lb*0.454;
+return lb*0.4535;
 }
 
 kgtolb(num kg){
-return kg*2.205;
+return kg*2.2046;
 }
 
 main() { 
