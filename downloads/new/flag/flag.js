@@ -297,21 +297,18 @@
       throw H.wrapException(H.diagnoseIndexError(receiver, index));
     },
     diagnoseIndexError: function(indexable, index) {
-      var t1, $length, t2, _s5_ = "index";
+      var $length, t1, _s5_ = "index";
       if (typeof index !== "number" || Math.floor(index) !== index)
         return new P.ArgumentError(true, index, _s5_, null);
-      t1 = J.getInterceptor$asx(indexable);
-      $length = H.intTypeCheck(t1.get$length(indexable));
+      $length = H.intTypeCheck(J.get$length$asx(indexable));
       if (!(index < 0)) {
         if (typeof $length !== "number")
           return H.iae($length);
-        t2 = index >= $length;
+        t1 = index >= $length;
       } else
-        t2 = true;
-      if (t2) {
-        t1 = H.intTypeCheck($length == null ? t1.get$length(indexable) : $length);
-        return new P.IndexError(t1, true, index, _s5_, "Index out of range");
-      }
+        t1 = true;
+      if (t1)
+        return P.IndexError$(index, indexable, _s5_, null, $length);
       return P.RangeError$value(index, _s5_);
     },
     argumentErrorValue: function(object) {
@@ -337,7 +334,7 @@
       throw H.wrapException(ex);
     },
     throwConcurrentModificationError: function(collection) {
-      throw H.wrapException(new P.ConcurrentModificationError(collection));
+      throw H.wrapException(P.ConcurrentModificationError$(collection));
     },
     TypeErrorDecoder_extractPattern: function(message) {
       var match, $arguments, argumentsExpr, expr, method, receiver;
@@ -773,6 +770,13 @@
       if (typeof value === "string")
         return value;
       throw H.wrapException(H.TypeErrorImplementation$(value, "String"));
+    },
+    numTypeCheck: function(value) {
+      if (value == null)
+        return value;
+      if (typeof value === "number")
+        return value;
+      throw H.wrapException(H.TypeErrorImplementation$(value, "num"));
     },
     boolTypeCheck: function(value) {
       if (value == null)
@@ -1411,7 +1415,24 @@
       this.prototypeForTag = t0;
     },
     extractKeys: function(victim) {
-      return J.JSArray_markFixedList(H.setRuntimeTypeInfo(victim ? Object.keys(victim) : [], [null]));
+      return J.JSArray_JSArray$markFixed(victim ? Object.keys(victim) : [], null);
+    },
+    printString: function(string) {
+      if (typeof dartPrint == "function") {
+        dartPrint(string);
+        return;
+      }
+      if (typeof console == "object" && typeof console.log != "undefined") {
+        console.log(string);
+        return;
+      }
+      if (typeof window == "object")
+        return;
+      if (typeof print == "function") {
+        print(string);
+        return;
+      }
+      throw "Unable to print message: " + String(string);
     }
   },
   J = {
@@ -1457,6 +1478,9 @@
         return C.UnknownJavaScriptObject_methods;
       }
       return C.UnknownJavaScriptObject_methods;
+    },
+    JSArray_JSArray$markFixed: function(allocation, $E) {
+      return J.JSArray_markFixedList(H.setRuntimeTypeInfo(allocation, [$E]));
     },
     JSArray_markFixedList: function(list) {
       H.listTypeCheck(list);
@@ -2003,13 +2027,23 @@
       return new P.ArgumentError(true, value, $name, message);
     },
     RangeError$value: function(value, $name) {
-      return new P.RangeError(true, value, $name, "Value not in range");
+      return new P.RangeError(null, null, true, value, $name, "Value not in range");
+    },
+    IndexError$: function(invalidValue, indexable, $name, message, $length) {
+      var t1 = H.intTypeCheck($length == null ? J.get$length$asx(indexable) : $length);
+      return new P.IndexError(t1, true, invalidValue, $name, "Index out of range");
     },
     UnsupportedError$: function(message) {
       return new P.UnsupportedError(message);
     },
     UnimplementedError$: function(message) {
       return new P.UnimplementedError(message);
+    },
+    ConcurrentModificationError$: function(modifiedObject) {
+      return new P.ConcurrentModificationError(modifiedObject);
+    },
+    print: function(object) {
+      H.printString(H.S(object));
     },
     bool: function bool() {
     },
@@ -2028,12 +2062,14 @@
       _.name = t2;
       _.message = t3;
     },
-    RangeError: function RangeError(t0, t1, t2, t3) {
+    RangeError: function RangeError(t0, t1, t2, t3, t4, t5) {
       var _ = this;
-      _._hasValue = t0;
-      _.invalidValue = t1;
-      _.name = t2;
-      _.message = t3;
+      _.start = t0;
+      _.end = t1;
+      _._hasValue = t2;
+      _.invalidValue = t3;
+      _.name = t4;
+      _.message = t5;
     },
     IndexError: function IndexError(t0, t1, t2, t3, t4) {
       var _ = this;
@@ -2173,7 +2209,47 @@
       this.onData = t0;
     }
   },
-  Q = {
+  L = {
+    fivePointStar: function(x, y, r, solid, theta, color) {
+      var t1, i, t2, outerPoints = [], innerPoints = [],
+        innerR = r * Math.cos(1.2566370614359172) / Math.cos(0.6283185307179586);
+      P.print("\u6e96\u5099\u756b\u4e00\u500b\u4f4d\u65bc (" + x + ", " + y + "), \u534a\u5f91 " + r + ", \u5be6\u5fc3\u70ba true, \u984f\u8272\u70ba " + color + " \u7684\u4e94\u8292\u661f");
+      $.ctx.beginPath();
+      for (t1 = theta * 0.017453292519943295, i = 0; i <= 5; ++i) {
+        t2 = 1.2566370614359172 * i + t1;
+        outerPoints.push([x + r * Math.sin(t2), y - r * Math.cos(t2)]);
+        t2 -= 0.6283185307179586;
+        innerPoints.push([x + innerR * Math.sin(t2), y - innerR * Math.cos(t2)]);
+      }
+      P.print(outerPoints);
+      t1 = $.ctx;
+      if (0 >= outerPoints.length)
+        return H.ioore(outerPoints, 0);
+      t2 = outerPoints[0];
+      t1.moveTo(t2[0], t2[1]);
+      for (i = 1; i < 5;) {
+        t1 = $.ctx;
+        if (i >= innerPoints.length)
+          return H.ioore(innerPoints, i);
+        t2 = innerPoints[i];
+        t1.lineTo(t2[0], t2[1]);
+        t2 = $.ctx;
+        if (i >= outerPoints.length)
+          return H.ioore(outerPoints, i);
+        t1 = outerPoints[i];
+        t2.lineTo(t1[0], t1[1]);
+        t1 = $.ctx;
+        ++i;
+        if (i >= innerPoints.length)
+          return H.ioore(innerPoints, i);
+        t2 = innerPoints[i];
+        t1.lineTo(t2[0], t2[1]);
+      }
+      $.ctx.closePath();
+      t1 = $.ctx;
+      t1.fillStyle = color;
+      t1.fill();
+    },
     main: function() {
       var t3,
         t1 = document,
@@ -2181,73 +2257,157 @@
       $.canvas = t2;
       t2 = H.interceptedTypeCheck((t2 && C.CanvasElement_methods).getContext$1(t2, "2d"), "$isCanvasRenderingContext2D");
       $.ctx = t2;
-      Q.drawROC(t2);
-      t2 = J.get$onClick$x(t1.querySelector("#roc"));
+      L.drawCuba(t2);
+      t2 = J.get$onClick$x(t1.querySelector("#cuba"));
       t3 = H.getTypeArgumentByIndex(t2, 0);
-      W._EventStreamSubscription$(t2._target, t2._eventType, H.functionTypeCheck(new Q.main_closure(), {func: 1, ret: -1, args: [t3]}), false, t3);
-      t3 = J.get$onClick$x(t1.querySelector("#usa"));
+      W._EventStreamSubscription$(t2._target, t2._eventType, H.functionTypeCheck(new L.main_closure(), {func: 1, ret: -1, args: [t3]}), false, t3);
+      t3 = J.get$onClick$x(t1.querySelector("#china"));
       t2 = H.getTypeArgumentByIndex(t3, 0);
-      W._EventStreamSubscription$(t3._target, t3._eventType, H.functionTypeCheck(new Q.main_closure0(), {func: 1, ret: -1, args: [t2]}), false, t2);
-      t2 = J.get$onClick$x(t1.querySelector("#jpn"));
+      W._EventStreamSubscription$(t3._target, t3._eventType, H.functionTypeCheck(new L.main_closure0(), {func: 1, ret: -1, args: [t2]}), false, t2);
+      t2 = J.get$onClick$x(t1.querySelector("#button"));
       t3 = H.getTypeArgumentByIndex(t2, 0);
-      W._EventStreamSubscription$(t2._target, t2._eventType, H.functionTypeCheck(new Q.main_closure1(), {func: 1, ret: -1, args: [t3]}), false, t3);
-      t3 = J.get$onClick$x(t1.querySelector("#fra"));
+      W._EventStreamSubscription$(t2._target, t2._eventType, H.functionTypeCheck(new L.main_closure1(), {func: 1, ret: -1, args: [t3]}), false, t3);
+      t3 = J.get$onClick$x(t1.querySelector("#San"));
       t2 = H.getTypeArgumentByIndex(t3, 0);
-      W._EventStreamSubscription$(t3._target, t3._eventType, H.functionTypeCheck(new Q.main_closure2(), {func: 1, ret: -1, args: [t2]}), false, t2);
-      t2 = J.get$onClick$x(t1.querySelector("#rus"));
+      W._EventStreamSubscription$(t3._target, t3._eventType, H.functionTypeCheck(new L.main_closure2(), {func: 1, ret: -1, args: [t2]}), false, t2);
+      t2 = J.get$onClick$x(t1.querySelector("#usa"));
       t3 = H.getTypeArgumentByIndex(t2, 0);
-      W._EventStreamSubscription$(t2._target, t2._eventType, H.functionTypeCheck(new Q.main_closure3(), {func: 1, ret: -1, args: [t3]}), false, t3);
+      W._EventStreamSubscription$(t2._target, t2._eventType, H.functionTypeCheck(new L.main_closure3(), {func: 1, ret: -1, args: [t3]}), false, t3);
       t3 = J.get$onClick$x(t1.querySelector("#uk"));
       t2 = H.getTypeArgumentByIndex(t3, 0);
-      W._EventStreamSubscription$(t3._target, t3._eventType, H.functionTypeCheck(new Q.main_closure4(), {func: 1, ret: -1, args: [t2]}), false, t2);
-      t2 = J.get$onClick$x(t1.querySelector("#deu"));
-      t3 = H.getTypeArgumentByIndex(t2, 0);
-      W._EventStreamSubscription$(t2._target, t2._eventType, H.functionTypeCheck(new Q.main_closure5(), {func: 1, ret: -1, args: [t3]}), false, t3);
-      t3 = J.get$onClick$x(t1.querySelector("#nld"));
-      t2 = H.getTypeArgumentByIndex(t3, 0);
-      W._EventStreamSubscription$(t3._target, t3._eventType, H.functionTypeCheck(new Q.main_closure6(), {func: 1, ret: -1, args: [t2]}), false, t2);
-      t1 = J.get$onClick$x(t1.querySelector("#button"));
+      W._EventStreamSubscription$(t3._target, t3._eventType, H.functionTypeCheck(new L.main_closure4(), {func: 1, ret: -1, args: [t2]}), false, t2);
+      t1 = J.get$onClick$x(t1.querySelector("#canada"));
       t2 = H.getTypeArgumentByIndex(t1, 0);
-      W._EventStreamSubscription$(t1._target, t1._eventType, H.functionTypeCheck(new Q.main_closure7(), {func: 1, ret: -1, args: [t2]}), false, t2);
+      W._EventStreamSubscription$(t1._target, t1._eventType, H.functionTypeCheck(new L.main_closure5(), {func: 1, ret: -1, args: [t2]}), false, t2);
     },
-    drawROC: function(ctx) {
-      var angle, i, t1, t2, toX, toY;
-      ctx.clearRect(0, 0, 300, 200);
-      ctx.fillStyle = "rgb(255, 0, 0)";
-      ctx.fillRect(0, 0, 300, 200);
-      ctx.fillStyle = "rgb(0, 0, 150)";
-      ctx.fillRect(0, 0, 150, 100);
-      ctx.beginPath();
-      for (angle = 0, i = 0; i < 25; ++i) {
-        angle += 2.6179938779914944;
-        t1 = $.$get$circle_x();
-        t2 = Math.cos(angle);
-        if (typeof t1 !== "number")
-          return t1.$add();
-        toX = t1 + t2 * 37.5;
-        t2 = $.$get$circle_y();
-        t1 = Math.sin(angle);
-        if (typeof t2 !== "number")
-          return t2.$add();
-        toY = t2 + t1 * 37.5;
-        if (i !== 0)
-          ctx.lineTo(toX, toY);
-        else
-          ctx.moveTo(toX, toY);
+    drawStar: function(cx, cy, spikes, outerRadius, innerRadius) {
+      var rot, i, t2, t3,
+        step = 3.141592653589793 / spikes,
+        t1 = $.ctx;
+      t1.fillStyle = "#fff";
+      t1.beginPath();
+      t1 = cy - outerRadius;
+      $.ctx.moveTo(cx, t1);
+      for (rot = 4.71238898038469, i = 0; i < spikes; ++i) {
+        t2 = Math.cos(rot);
+        t3 = Math.sin(rot);
+        $.ctx.lineTo(cx + t2 * outerRadius, cy + t3 * outerRadius);
+        rot += step;
+        t3 = Math.cos(rot);
+        t2 = Math.sin(rot);
+        $.ctx.lineTo(cx + t3 * innerRadius, cy + t2 * innerRadius);
+        rot += step;
       }
-      ctx.closePath();
-      ctx.fillStyle = "#fff";
+      $.ctx.lineTo(cx, t1);
+      $.ctx.closePath();
+      t1 = $.ctx;
+      t1.lineWidth = 5;
+      t1.strokeStyle = "white";
+      t1.stroke();
+      t1 = $.ctx;
+      t1.fillStyle = "white";
+      t1.fill();
+    },
+    drawStarY: function(cx, cy, spikes, outerRadius, innerRadius) {
+      var rot, i, t2, t3,
+        step = 3.141592653589793 / spikes,
+        t1 = $.ctx;
+      t1.fillStyle = "#rgb(260,180,0)";
+      t1.beginPath();
+      t1 = cy - outerRadius;
+      $.ctx.moveTo(cx, t1);
+      for (rot = 4.71238898038469, i = 0; i < spikes; ++i) {
+        t2 = Math.cos(rot);
+        t3 = Math.sin(rot);
+        $.ctx.lineTo(cx + t2 * outerRadius, cy + t3 * outerRadius);
+        rot += step;
+        t3 = Math.cos(rot);
+        t2 = Math.sin(rot);
+        $.ctx.lineTo(cx + t3 * innerRadius, cy + t2 * innerRadius);
+        rot += step;
+      }
+      $.ctx.lineTo(cx, t1);
+      $.ctx.closePath();
+      t1 = $.ctx;
+      t1.lineWidth = 5;
+      t1.strokeStyle = "yellow";
+      t1.stroke();
+      t1 = $.ctx;
+      t1.fillStyle = "yellow";
+      t1.fill();
+    },
+    drawStarYT: function(cx, cy, spikes, outerRadius, innerRadius) {
+      var rot, i, t2, t3,
+        step = 3.141592653589793 / spikes,
+        t1 = $.ctx;
+      t1.fillStyle = "#rgb(260,180,0)";
+      t1.beginPath();
+      t1 = cy - outerRadius;
+      $.ctx.moveTo(cx, t1);
+      for (rot = 0.39269908169872414, i = 0; i < spikes; ++i) {
+        t2 = Math.cos(rot);
+        t3 = Math.sin(rot);
+        $.ctx.lineTo(cx + t2 * outerRadius, cy + t3 * outerRadius);
+        rot += step;
+        t3 = Math.cos(rot);
+        t2 = Math.sin(rot);
+        $.ctx.lineTo(cx + t3 * innerRadius, cy + t2 * innerRadius);
+        rot += step;
+      }
+      $.ctx.lineTo(cx, t1);
+      $.ctx.closePath();
+      t1 = $.ctx;
+      t1.lineWidth = 5;
+      t1.strokeStyle = "yellow";
+      t1.stroke();
+      t1 = $.ctx;
+      t1.fillStyle = "yellow";
+      t1.fill();
+    },
+    drawStarYT1: function(cx, cy, spikes, outerRadius, innerRadius) {
+      var rot, i, t2, t3,
+        step = 3.141592653589793 / spikes,
+        t1 = $.ctx;
+      t1.fillStyle = "#rgb(260,180,0)";
+      t1.beginPath();
+      t1 = cy - outerRadius;
+      $.ctx.moveTo(cx, t1);
+      for (rot = 0.7853981633974483, i = 0; i < spikes; ++i) {
+        t2 = Math.cos(rot);
+        t3 = Math.sin(rot);
+        $.ctx.lineTo(cx + t2 * outerRadius, cy + t3 * outerRadius);
+        rot += step;
+        t3 = Math.cos(rot);
+        t2 = Math.sin(rot);
+        $.ctx.lineTo(cx + t3 * innerRadius, cy + t2 * innerRadius);
+        rot += step;
+      }
+      $.ctx.lineTo(cx, t1);
+      $.ctx.closePath();
+      t1 = $.ctx;
+      t1.lineWidth = 5;
+      t1.strokeStyle = "yellow";
+      t1.stroke();
+      t1 = $.ctx;
+      t1.fillStyle = "yellow";
+      t1.fill();
+    },
+    drawCuba: function(ctx) {
+      var _s14_ = "rgb(255, 0, 0)";
+      ctx.clearRect(0, 0, 300, 200);
+      ctx.fillStyle = "rgb(0, 0, 140)";
+      ctx.fillRect(0, 0, 300, 200);
+      ctx.fillStyle = "rgb(255, 255, 255)";
+      ctx.fillRect(0, 40, 300, 40);
+      ctx.fillRect(0, 120, 300, 40);
+      ctx.strokeStyle = _s14_;
+      ctx.stroke();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(140, 100);
+      ctx.lineTo(0, 200);
+      ctx.fillStyle = _s14_;
       ctx.fill();
-      ctx.beginPath();
-      ctx.arc($.$get$circle_x(), $.$get$circle_y(), 21.25, 0, 6.283185307179586, true);
-      ctx.closePath();
-      ctx.fillStyle = "rgb(0, 0, 149)";
-      ctx.fill();
-      ctx.beginPath();
-      ctx.arc($.$get$circle_x(), $.$get$circle_y(), 18.75, 0, 6.283185307179586, true);
-      ctx.closePath();
-      ctx.fillStyle = "#fff";
-      ctx.fill();
+      L.drawStar(50, 100, 5, 20, 10);
     },
     main_closure: function main_closure() {
     },
@@ -2262,13 +2422,9 @@
     main_closure4: function main_closure4() {
     },
     main_closure5: function main_closure5() {
-    },
-    main_closure6: function main_closure6() {
-    },
-    main_closure7: function main_closure7() {
     }
   };
-  var holders = [C, H, J, P, W, Q];
+  var holders = [C, H, J, P, W, L];
   hunkHelpers.setFunctionNamesIfNecessary(holders);
   var $ = {};
   H.JS_CONST.prototype = {};
@@ -2545,13 +2701,13 @@
     call$0: function() {
       this.callback.call$0();
     },
-    $signature: 1
+    $signature: 0
   };
   P._AsyncRun__scheduleImmediateWithSetImmediate_internalCallback.prototype = {
     call$0: function() {
       this.callback.call$0();
     },
-    $signature: 1
+    $signature: 0
   };
   P._TimerImpl.prototype = {
     _TimerImpl$2: function(milliseconds, callback) {
@@ -2703,13 +2859,13 @@
     call$0: function() {
       P._Future__propagateToListeners(this.$this, this.listener);
     },
-    $signature: 1
+    $signature: 0
   };
   P._Future__prependListeners_closure.prototype = {
     call$0: function() {
       P._Future__propagateToListeners(this.$this, this._box_0.listeners);
     },
-    $signature: 1
+    $signature: 0
   };
   P._Future__chainForeignFuture_closure.prototype = {
     call$1: function(value) {
@@ -2733,7 +2889,7 @@
     call$0: function() {
       this.target._completeError$2(this.e, this.s);
     },
-    $signature: 1
+    $signature: 0
   };
   P._Future__propagateToListeners_handleWhenCompleteCallback.prototype = {
     call$0: function() {
@@ -2854,7 +3010,7 @@
     call$0: function() {
       this.future._complete$1(this._box_0.count);
     },
-    $signature: 1
+    $signature: 0
   };
   P.StreamSubscription.prototype = {};
   P.AsyncError.prototype = {
@@ -2877,7 +3033,7 @@
       error.stack = t2.toString$0(0);
       throw error;
     },
-    $signature: 1
+    $signature: 0
   };
   P._RootZone.prototype = {
     runGuarded$1: function(f) {
@@ -3004,7 +3160,21 @@
       return "RangeError";
     },
     get$_errorExplanation: function() {
-      return "";
+      var explanation, t2,
+        t1 = this.start;
+      if (t1 == null) {
+        t1 = this.end;
+        explanation = t1 != null ? ": Not less than or equal to " + H.S(t1) : "";
+      } else {
+        t2 = this.end;
+        if (t2 == null)
+          explanation = ": Not greater than or equal to " + H.S(t1);
+        else if (t2 > t1)
+          explanation = ": Not in range " + H.S(t1) + ".." + H.S(t2) + ", inclusive";
+        else
+          explanation = t2 < t1 ? ": Valid value range is empty" : ": Only valid value is " + H.S(t1);
+      }
+      return explanation;
     }
   };
   P.IndexError.prototype = {
@@ -3161,159 +3331,233 @@
       return new W._ElementEventStreamImpl(receiver, "click", false, [W.MouseEvent]);
     }
   };
-  Q.main_closure.prototype = {
+  L.main_closure.prototype = {
     call$1: function(e) {
       H.interceptedTypeCheck(e, "$isMouseEvent");
-      return Q.drawROC($.ctx);
+      return L.drawCuba($.ctx);
     },
-    $signature: 0
+    $signature: 1
   };
-  Q.main_closure0.prototype = {
+  L.main_closure0.prototype = {
     call$1: function(e) {
-      var t1,
-        _s16_ = "rgb(255,255,255)",
-        _s36_ = "\u272e      \u272e      \u272e      \u272e      \u272e      \u272e",
-        _s29_ = "\u272e      \u272e      \u272e      \u272e      \u272e";
+      var t1;
       H.interceptedTypeCheck(e, "$isMouseEvent");
       t1 = $.ctx;
       t1.clearRect(0, 0, 300, 200);
-      t1.fillStyle = "rgb(200,0,0)";
+      t1.fillStyle = "rgb(255, 0, 0)";
       t1.fillRect(0, 0, 300, 200);
-      t1.fillStyle = "rgb(0,0,100)";
-      t1.fillRect(0, 0, 150, 111.11111111111111);
-      t1.fillStyle = _s16_;
-      t1.fillRect(150, 15.384615384615385, 300, 15.384615384615385);
-      t1.fillStyle = _s16_;
-      t1.fillRect(150, 46.51162790697675, 300, 15.384615384615385);
-      t1.fillStyle = _s16_;
-      t1.fillRect(150, 76.92307692307692, 300, 15.384615384615385);
-      t1.fillStyle = _s16_;
-      t1.fillRect(0, 107.70059235325795, 300, 15.384615384615385);
-      t1.fillStyle = _s16_;
-      t1.fillRect(0, 138.46579894765995, 300, 15.384615384615385);
-      t1.fillStyle = _s16_;
-      t1.fillRect(0, 169.23337282112033, 300, 15.384615384615385);
-      t1.font = "10px Arial";
-      t1.strokeStyle = "rgb(255, 255, 255)";
-      t1.strokeText(_s36_, 8.333333333333334, 12);
-      t1.strokeText(_s29_, 21.428571428571427, 22.22222222222222);
-      t1.strokeText(_s36_, 8.333333333333334, 33.33333333333333);
-      t1.strokeText(_s29_, 21.428571428571427, 44.44444444444444);
-      t1.strokeText(_s36_, 8.333333333333334, 55.55555555555556);
-      t1.strokeText(_s29_, 21.428571428571427, 66.66666666666666);
-      t1.strokeText(_s36_, 8.333333333333334, 77.77777777777777);
-      t1.strokeText(_s29_, 21.428571428571427, 88.88888888888889);
-      t1.strokeText(_s36_, 8.333333333333334, 100);
+      L.drawStarY(50, 50, 5, 20, 10);
+      L.drawStarYT1(120, 25, 5, 5, 2.5);
+      L.drawStarYT(135, 50, 5, 5, 2.5);
+      L.drawStarY(135, 75, 5, 5, 2.5);
+      L.drawStarYT1(120, 100, 5, 5, 2.5);
       return;
     },
-    $signature: 0
+    $signature: 1
   };
-  Q.main_closure1.prototype = {
-    call$1: function(e) {
-      var t1;
-      H.interceptedTypeCheck(e, "$isMouseEvent");
-      t1 = $.ctx;
-      t1.clearRect(0, 0, 300, 200);
-      t1.fillStyle = "#fff";
-      t1.fillRect(0, 0, 300, 200);
-      t1.beginPath();
-      t1.arc($.$get$circle_x_jan(), $.$get$circle_y_jan(), 50, 0, 6.283185307179586, true);
-      t1.closePath();
-      t1.fillStyle = "rgb(200,0,0)";
-      t1.fill();
-      return;
-    },
-    $signature: 0
-  };
-  Q.main_closure2.prototype = {
-    call$1: function(e) {
-      var t1;
-      H.interceptedTypeCheck(e, "$isMouseEvent");
-      t1 = $.ctx;
-      t1.clearRect(0, 0, 300, 200);
-      t1.fillStyle = "rgb(200,0,0)";
-      t1.fillRect(200, 0, 100, 200);
-      t1.fillStyle = "#fff";
-      t1.fillRect(100, 0, 100, 200);
-      t1.fillStyle = "rgb(0,0,100)";
-      t1.fillRect(0, 0, 100, 200);
-      return;
-    },
-    $signature: 0
-  };
-  Q.main_closure3.prototype = {
-    call$1: function(e) {
-      var t1;
-      H.interceptedTypeCheck(e, "$isMouseEvent");
-      t1 = $.ctx;
-      t1.clearRect(0, 0, 300, 200);
-      t1.fillStyle = "rgb(200,0,0)";
-      t1.fillRect(0, 133.33, 300, 66.66666666666667);
-      t1.fillStyle = "#fff";
-      t1.fillRect(0, 0, 300, 66.66666666666667);
-      t1.fillStyle = "rgb(0,0,100)";
-      t1.fillRect(0, 66.67, 300, 66.66666666666667);
-      return;
-    },
-    $signature: 0
-  };
-  Q.main_closure4.prototype = {
-    call$1: function(e) {
-      var t1;
-      H.interceptedTypeCheck(e, "$isMouseEvent");
-      t1 = $.ctx;
-      t1.clearRect(0, 0, 300, 200);
-      t1.fillStyle = "rgb(0,0,100)";
-      t1.fillRect(0, 0, 300, 200);
-      t1.fillStyle = "#fff";
-      t1.fillRect(120, 0, 60, 200);
-      t1.fillRect(0, 66.67, 300, 66.66666666666667);
-      t1.fillStyle = "rgb(200,0,0)";
-      t1.fillRect(131.5, 0, 37.5, 200);
-      t1.fillRect(0, 82.5, 300, 33.333333333333336);
-      return;
-    },
-    $signature: 0
-  };
-  Q.main_closure5.prototype = {
-    call$1: function(e) {
-      var t1;
-      H.interceptedTypeCheck(e, "$isMouseEvent");
-      t1 = $.ctx;
-      t1.clearRect(0, 0, 300, 200);
-      t1.fillStyle = "rgb(210,0,0)";
-      t1.fillRect(0, 66.67, 300, 66.66666666666667);
-      t1.fillStyle = "rgb(260,180,0)";
-      t1.fillRect(0, 133.33, 300, 66.66666666666667);
-      t1.fillStyle = "rgb(0,0,0)";
-      t1.fillRect(0, 0, 300, 66.66666666666667);
-      return;
-    },
-    $signature: 0
-  };
-  Q.main_closure6.prototype = {
-    call$1: function(e) {
-      var t1;
-      H.interceptedTypeCheck(e, "$isMouseEvent");
-      t1 = $.ctx;
-      t1.clearRect(0, 0, 300, 200);
-      t1.fillStyle = "rgb(200,0,0)";
-      t1.fillRect(0, 0, 300, 66.66666666666667);
-      t1.fillStyle = "#fff";
-      t1.fillRect(0, 66.67, 300, 66.66666666666667);
-      t1.fillStyle = "rgb(0,0,100)";
-      t1.fillRect(0, 133.33, 300, 66.66666666666667);
-      return;
-    },
-    $signature: 0
-  };
-  Q.main_closure7.prototype = {
+  L.main_closure1.prototype = {
     call$1: function(e) {
       H.interceptedTypeCheck(e, "$isMouseEvent");
       $.ctx.clearRect(0, 0, 300, 200);
       return;
     },
-    $signature: 0
+    $signature: 1
+  };
+  L.main_closure2.prototype = {
+    call$1: function(e) {
+      var t1;
+      H.interceptedTypeCheck(e, "$isMouseEvent");
+      t1 = $.ctx;
+      t1.clearRect(0, 0, 300, 200);
+      t1.fillStyle = "rgb(0, 200, 25)";
+      t1.fillRect(0, 0, 300, 200);
+      t1.beginPath();
+      t1.moveTo(0, 140);
+      t1.lineTo(0, 200);
+      t1.lineTo(60, 200);
+      t1.lineTo(300, 60);
+      t1.lineTo(300, 0);
+      t1.lineTo(240, 0);
+      t1.closePath();
+      t1.fillStyle = "rgb(240, 190, 0)";
+      t1.fill();
+      t1.beginPath();
+      t1.moveTo(0, 160);
+      t1.lineTo(0, 200);
+      t1.lineTo(40, 200);
+      t1.lineTo(300, 40);
+      t1.lineTo(300, 0);
+      t1.lineTo(260, 0);
+      t1.closePath();
+      t1.fillStyle = "rgb(0, 0, 0)";
+      t1.fill();
+      t1.beginPath();
+      t1.moveTo(60, 200);
+      t1.lineTo(300, 200);
+      t1.lineTo(300, 60);
+      t1.closePath();
+      t1.fillStyle = "rgb(240, 0, 0)";
+      t1.fill();
+      L.fivePointStar(80, 145, 28, true, 180, "white");
+      L.fivePointStar(220, 55, 28, true, 180, "white");
+      return;
+    },
+    $signature: 1
+  };
+  L.main_closure3.prototype = {
+    call$1: function(e) {
+      var t1;
+      H.interceptedTypeCheck(e, "$isMouseEvent");
+      t1 = $.ctx;
+      t1.clearRect(0, 0, 300, 200);
+      t1.fillStyle = "rgb(255, 0, 0)";
+      t1.fillRect(0, 0, 300, 200);
+      t1.fillStyle = "rgb(255, 255, 255)";
+      t1.fillRect(0, 15.3, 300, 15.384615384615385);
+      t1.fillRect(0, 45.9, 300, 15.384615384615385);
+      t1.fillRect(0, 75.5, 300, 15.384615384615385);
+      t1.fillRect(0, 106.1, 300, 15.384615384615385);
+      t1.fillRect(0, 136.7, 300, 15.384615384615385);
+      t1.fillRect(0, 167.3, 300, 15.384615384615385);
+      t1.fillStyle = "rgb(0, 0, 140)";
+      t1.fillRect(0, 0, 150, 106.1);
+      L.drawStar(14, 17, 5, 5, 2.5);
+      L.drawStar(38, 17, 5, 5, 2.5);
+      L.drawStar(62, 17, 5, 5, 2.5);
+      L.drawStar(88, 17, 5, 5, 2.5);
+      L.drawStar(112, 17, 5, 5, 2.5);
+      L.drawStar(136, 17, 5, 5, 2.5);
+      L.drawStar(25, 36, 5, 5, 2.5);
+      L.drawStar(50, 36, 5, 5, 2.5);
+      L.drawStar(75, 36, 5, 5, 2.5);
+      L.drawStar(100, 36, 5, 5, 2.5);
+      L.drawStar(125, 36, 5, 5, 2.5);
+      L.drawStar(14, 54, 5, 5, 2.5);
+      L.drawStar(38, 54, 5, 5, 2.5);
+      L.drawStar(62, 54, 5, 5, 2.5);
+      L.drawStar(88, 54, 5, 5, 2.5);
+      L.drawStar(112, 54, 5, 5, 2.5);
+      L.drawStar(136, 54, 5, 5, 2.5);
+      L.drawStar(25, 71, 5, 5, 2.5);
+      L.drawStar(50, 71, 5, 5, 2.5);
+      L.drawStar(75, 71, 5, 5, 2.5);
+      L.drawStar(100, 71, 5, 5, 2.5);
+      L.drawStar(125, 71, 5, 5, 2.5);
+      L.drawStar(14, 88, 5, 5, 2.5);
+      L.drawStar(38, 88, 5, 5, 2.5);
+      L.drawStar(62, 88, 5, 5, 2.5);
+      L.drawStar(88, 88, 5, 5, 2.5);
+      L.drawStar(112, 88, 5, 5, 2.5);
+      L.drawStar(136, 88, 5, 5, 2.5);
+      return;
+    },
+    $signature: 1
+  };
+  L.main_closure4.prototype = {
+    call$1: function(e) {
+      var t1,
+        _s7_ = "#c9072a";
+      H.interceptedTypeCheck(e, "$isMouseEvent");
+      t1 = $.ctx;
+      t1.clearRect(0, 0, 300, 200);
+      t1.fillStyle = "rgb(0, 0, 140)";
+      t1.fillRect(0, 0, 300, 200);
+      t1.strokeStyle = "#fff";
+      t1.lineWidth = 40;
+      t1.beginPath();
+      t1.moveTo(0, 0);
+      t1.lineTo(300, 200);
+      t1.moveTo(0, 200);
+      t1.lineTo(300, 0);
+      t1.stroke();
+      t1.strokeStyle = _s7_;
+      t1.lineWidth = 20;
+      t1.beginPath();
+      t1.moveTo(0, 205);
+      t1.lineTo(150, 105);
+      t1.stroke();
+      t1.strokeStyle = _s7_;
+      t1.lineWidth = 20;
+      t1.beginPath();
+      t1.moveTo(150, 95);
+      t1.lineTo(300, -5);
+      t1.stroke();
+      t1.strokeStyle = _s7_;
+      t1.lineWidth = 20;
+      t1.beginPath();
+      t1.moveTo(160, 100);
+      t1.lineTo(305, 200);
+      t1.stroke();
+      t1.strokeStyle = _s7_;
+      t1.lineWidth = 20;
+      t1.beginPath();
+      t1.moveTo(140, 100);
+      t1.lineTo(-5, 0);
+      t1.stroke();
+      t1.strokeStyle = "#fff";
+      t1.lineWidth = 40;
+      t1.beginPath();
+      t1.moveTo(0, 100);
+      t1.lineTo(300, 100);
+      t1.moveTo(150, 0);
+      t1.lineTo(150, 200);
+      t1.stroke();
+      t1.strokeStyle = _s7_;
+      t1.lineWidth = 20;
+      t1.beginPath();
+      t1.moveTo(0, 100);
+      t1.lineTo(300, 100);
+      t1.moveTo(150, 0);
+      t1.lineTo(150, 200);
+      t1.stroke();
+      return;
+    },
+    $signature: 1
+  };
+  L.main_closure5.prototype = {
+    call$1: function(e) {
+      var t1,
+        _s14_ = "rgb(255, 0, 0)";
+      H.interceptedTypeCheck(e, "$isMouseEvent");
+      t1 = $.ctx;
+      t1.clearRect(0, 0, 300, 200);
+      t1.fillStyle = _s14_;
+      t1.fillRect(0, 0, 300, 200);
+      t1.fillStyle = "#fff";
+      t1.fillRect(90, 0, 120, 200);
+      t1.beginPath();
+      t1.moveTo(147, 170);
+      t1.lineTo(147, 140);
+      t1.lineTo(125, 145);
+      t1.lineTo(130, 135);
+      t1.lineTo(95, 100);
+      t1.lineTo(100, 95);
+      t1.lineTo(102, 80);
+      t1.lineTo(110, 85);
+      t1.lineTo(115, 80);
+      t1.lineTo(125, 90);
+      t1.lineTo(123, 60);
+      t1.lineTo(135, 70);
+      t1.lineTo(150, 30);
+      t1.lineTo(165, 70);
+      t1.lineTo(177, 60);
+      t1.lineTo(175, 90);
+      t1.lineTo(185, 80);
+      t1.lineTo(190, 85);
+      t1.lineTo(198, 80);
+      t1.lineTo(200, 95);
+      t1.lineTo(205, 100);
+      t1.lineTo(170, 135);
+      t1.lineTo(175, 145);
+      t1.lineTo(153, 140);
+      t1.lineTo(153, 170);
+      t1.lineTo(147, 170);
+      t1.closePath();
+      t1.fillStyle = _s14_;
+      t1.fill();
+      return;
+    },
+    $signature: 1
   };
   (function aliases() {
     var _ = J.Interceptor.prototype;
@@ -3339,7 +3583,7 @@
     _inherit(J.JSUnmodifiableArray, J.JSArray);
     _inheritMany(J.JSNumber, [J.JSInt, J.JSDouble]);
     _inheritMany(P.Error, [H.NullError, H.JsNoSuchMethodError, H.UnknownJsTypeError, H.TypeErrorImplementation, H.RuntimeError, P.AssertionError, P.NullThrownError, P.ArgumentError, P.UnsupportedError, P.UnimplementedError, P.ConcurrentModificationError, P.CyclicInitializationError]);
-    _inheritMany(H.Closure, [H.unwrapException_saveStackTrace, H.TearOffClosure, H.initHooks_closure, H.initHooks_closure0, H.initHooks_closure1, P._AsyncRun__initializeScheduleImmediate_internalCallback, P._AsyncRun__initializeScheduleImmediate_closure, P._AsyncRun__scheduleImmediateJsOverride_internalCallback, P._AsyncRun__scheduleImmediateWithSetImmediate_internalCallback, P._TimerImpl_internalCallback, P._Future__addListener_closure, P._Future__prependListeners_closure, P._Future__chainForeignFuture_closure, P._Future__chainForeignFuture_closure0, P._Future__chainForeignFuture_closure1, P._Future__propagateToListeners_handleWhenCompleteCallback, P._Future__propagateToListeners_handleWhenCompleteCallback_closure, P._Future__propagateToListeners_handleValueCallback, P._Future__propagateToListeners_handleError, P.Stream_length_closure, P.Stream_length_closure0, P._rootHandleUncaughtError_closure, P._RootZone_bindCallback_closure, P._RootZone_bindCallbackGuarded_closure, P._RootZone_bindUnaryCallbackGuarded_closure, W._EventStreamSubscription_closure, Q.main_closure, Q.main_closure0, Q.main_closure1, Q.main_closure2, Q.main_closure3, Q.main_closure4, Q.main_closure5, Q.main_closure6, Q.main_closure7]);
+    _inheritMany(H.Closure, [H.unwrapException_saveStackTrace, H.TearOffClosure, H.initHooks_closure, H.initHooks_closure0, H.initHooks_closure1, P._AsyncRun__initializeScheduleImmediate_internalCallback, P._AsyncRun__initializeScheduleImmediate_closure, P._AsyncRun__scheduleImmediateJsOverride_internalCallback, P._AsyncRun__scheduleImmediateWithSetImmediate_internalCallback, P._TimerImpl_internalCallback, P._Future__addListener_closure, P._Future__prependListeners_closure, P._Future__chainForeignFuture_closure, P._Future__chainForeignFuture_closure0, P._Future__chainForeignFuture_closure1, P._Future__propagateToListeners_handleWhenCompleteCallback, P._Future__propagateToListeners_handleWhenCompleteCallback_closure, P._Future__propagateToListeners_handleValueCallback, P._Future__propagateToListeners_handleError, P.Stream_length_closure, P.Stream_length_closure0, P._rootHandleUncaughtError_closure, P._RootZone_bindCallback_closure, P._RootZone_bindCallbackGuarded_closure, P._RootZone_bindUnaryCallbackGuarded_closure, W._EventStreamSubscription_closure, L.main_closure, L.main_closure0, L.main_closure1, L.main_closure2, L.main_closure3, L.main_closure4, L.main_closure5]);
     _inheritMany(H.TearOffClosure, [H.StaticClosure, H.BoundClosure]);
     _inherit(H._AssertionError, P.AssertionError);
     _inherit(P._RootZone, P._Zone);
@@ -3486,7 +3730,7 @@
 ;
     C.C__RootZone = new P._RootZone();
   })();
-  var init = {mangledGlobalNames: {int: "int", double: "double", num: "num", String: "String", bool: "bool", Null: "Null", List: "List"}, mangledNames: {}, getTypeFromName: getGlobalFromName, metadata: [], types: [{func: 1, ret: -1, args: [W.MouseEvent]}, {func: 1, ret: P.Null}, {func: 1, ret: -1}, {func: 1, ret: -1, args: [{func: 1, ret: -1}]}, {func: 1, args: [,]}, {func: 1, ret: P.Null, args: [,]}, {func: 1, args: [, P.String]}, {func: 1, args: [P.String]}, {func: 1, ret: P.Null, args: [{func: 1, ret: -1}]}, {func: 1, ret: P.Null, args: [,], opt: [P.StackTrace]}, {func: 1, ret: [P._Future,,], args: [,]}, {func: 1, args: [W.Event]}], interceptorsByTag: null, leafTags: null};
+  var init = {mangledGlobalNames: {int: "int", double: "double", num: "num", String: "String", bool: "bool", Null: "Null", List: "List"}, mangledNames: {}, getTypeFromName: getGlobalFromName, metadata: [], types: [{func: 1, ret: P.Null}, {func: 1, ret: -1, args: [W.MouseEvent]}, {func: 1, ret: -1}, {func: 1, ret: -1, args: [{func: 1, ret: -1}]}, {func: 1, args: [,]}, {func: 1, ret: P.Null, args: [,]}, {func: 1, args: [, P.String]}, {func: 1, args: [P.String]}, {func: 1, ret: P.Null, args: [{func: 1, ret: -1}]}, {func: 1, ret: P.Null, args: [,], opt: [P.StackTrace]}, {func: 1, ret: [P._Future,,], args: [,]}, {func: 1, args: [W.Event]}], interceptorsByTag: null, leafTags: null};
   (function staticFields() {
     $.Closure_functionCounter = 0;
     $.BoundClosure_selfFieldNameCache = null;
@@ -3582,18 +3826,6 @@
     _lazy($, "_AsyncRun__scheduleImmediateClosure", "$get$_AsyncRun__scheduleImmediateClosure", function() {
       return P._AsyncRun__initializeScheduleImmediate();
     });
-    _lazy($, "circle_x", "$get$circle_x", function() {
-      return 75;
-    });
-    _lazy($, "circle_y", "$get$circle_y", function() {
-      return 50;
-    });
-    _lazy($, "circle_x_jan", "$get$circle_x_jan", function() {
-      return 150;
-    });
-    _lazy($, "circle_y_jan", "$get$circle_y_jan", function() {
-      return 100;
-    });
   })();
   (function nativeSupport() {
     !function() {
@@ -3643,10 +3875,10 @@
   })(function(currentScript) {
     init.currentScript = currentScript;
     if (typeof dartMainRunner === "function")
-      dartMainRunner(Q.main, []);
+      dartMainRunner(L.main, []);
     else
-      Q.main([]);
+      L.main([]);
   });
 })();
 
-//# sourceMappingURL=national_flag.js.map
+//# sourceMappingURL=flag.js.map
