@@ -99,7 +99,7 @@ Created by..[40823201](https://40823201.github.io/cp2019/content/index.html)
 </t>
 <t tx="leo.20180902120523.15"># 溫度的轉換與方程式
 
-&lt;iframe src="https://dartpad.github.io/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/new/Temp1&amp;theme=dark" width="800" height="550"&gt;&lt;/iframe&gt;
+&lt;iframe src="https://dartpad.github.io/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/new/temp1&amp;theme=dark" width="800" height="550"&gt;&lt;/iframe&gt;
     &lt;/script&gt;
 &lt;/section&gt;
 
@@ -117,9 +117,9 @@ Created by..[40823201](https://40823201.github.io/cp2019/content/index.html)
 
 						
 </t>
-<t tx="leo.20180902120523.17"># 各組溫度格式方程式
+<t tx="leo.20180902120523.17"># 溫度方程式
 
- &lt;iframe src="https://dartpad.github.io/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/new/Temp2&amp;theme=dark" width="800" height="550"&gt;&lt;/iframe&gt;
+ &lt;iframe src="https://dartpad.github.io/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/new/temp2&amp;theme=dark" width="800" height="550"&gt;&lt;/iframe&gt;
     &lt;/script&gt;
 &lt;/section&gt;
 
@@ -324,7 +324,14 @@ vertical: body pane on the botton</t>
 
 這次做的心得報告是介紹我們這一學期的學習成果，從一開始根本聽不懂老師在講什麼，到現在雖然還是不能完全理解，但是透過自己摸索和跟學長組員們討論，還是學到了很多，從一開始的hello到現在畫國旗，雖然網站一開始不是完全靠自己做出來，有同學幫忙，中間也有拖延遲交，還甚至認為機械不用學程式。學到現在才知道，學程式才可以拓展自己未來的領域。
 </t>
-<t tx="leo.20200109135741.1"></t>
+<t tx="leo.20200109135741.1">&lt;section data-markdown&gt;
+    &lt;script type="text/template"&gt;
+@others
+    &lt;/script&gt;
+&lt;/section&gt;
+
+
+						</t>
 <t tx="leo.20200109135857.1"># 期末自評
 
 給自己打65分的原因，是因為自己其實表現不盡理想，很多都是請教和參考同學的才能做出來，中間也遇到很多問題，但其實都是老師上課提過的、同學遇過的，或是小細節自己沒注意到，覺得自己可以表現得更好，但給自己打及格是因為我自認我也努力了很多，從一開始的不懂，到處請教別人，但是總是請教別人也不是辦法，而且學習效果也不佳，把老師的影片拿出來看了很多遍，摸索了很久，才把自己的網頁做出來。覺得自己的努力值得65分。</t>
