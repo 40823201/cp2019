@@ -55,10 +55,13 @@
 ### 陳品喬
 
 &lt;small&gt;
-Created by..[40823201](https://40823201.github.io/cp2019/content/index.html)
+Created by [40823201](https://40823201.github.io/cp2019/content/index.html)
 &lt;/small&gt;
 
+[倉儲](https://github.com/40823201/cp2019/)
+[網頁](https://40823201.github.io/cp2019/content/index.html)
 [CMSimfly 網誌](https://40823201.github.io/cp2019/blog/index.html)
+[YouTube](https://www.youtube.com/channel/UCMESjWRK9WKDan_ilckn-9g)
 
 
 </t>
@@ -73,13 +76,16 @@ Created by..[40823201](https://40823201.github.io/cp2019/content/index.html)
 </t>
 <t tx="leo.20180902120523.12"># 目錄
 
-* [溫度的轉換](https://40823201.github.io/cp2019/reveal/index.html#/2)
 
-* [各組溫度的轉換](https://40823201.github.io/cp2019/reveal/index.html#/2/1)
+* [溫度轉換方程式](https://40823201.github.io/cp2019/reveal/index.html#/2/1)
 
-* [查驗考試](https://40823201.github.io/cp2019/reveal/index.html#/2/2)
+* [重量轉換方程式](https://40823201.github.io/cp2019/reveal/index.html#/2/2)
 
-* [心得](https://40823201.github.io/cp2019/reveal/index.html#/2/3)
+* [16查驗考試](https://40823201.github.io/cp2019/reveal/index.html#/2/3)
+
+* [心得](https://40823201.github.io/cp2019/reveal/index.html#/2/4)
+
+* [期末自評](https://40823201.github.io/cp2019/reveal/index.html#/2/5)
 </t>
 <t tx="leo.20180902120523.13">&lt;section&gt;
 @others
@@ -97,12 +103,11 @@ Created by..[40823201](https://40823201.github.io/cp2019/content/index.html)
 
 						
 </t>
-<t tx="leo.20180902120523.15"># 溫度的轉換與方程式
+<t tx="leo.20180902120523.15"># 溫度轉換方程式
 
 &lt;iframe src="https://dartpad.github.io/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/new/temp1&amp;theme=dark" width="800" height="550"&gt;&lt;/iframe&gt;
     &lt;/script&gt;
 &lt;/section&gt;
-
 
 
 </t>
@@ -117,9 +122,9 @@ Created by..[40823201](https://40823201.github.io/cp2019/content/index.html)
 
 						
 </t>
-<t tx="leo.20180902120523.17"># 溫度方程式
+<t tx="leo.20180902120523.17"># 重量轉換方程式
 
- &lt;iframe src="https://dartpad.github.io/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/new/temp2&amp;theme=dark" width="800" height="550"&gt;&lt;/iframe&gt;
+ &lt;iframe src="https://dartpad.github.io/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/new/weight&amp;theme=dark" width="800" height="550"&gt;&lt;/iframe&gt;
     &lt;/script&gt;
 &lt;/section&gt;
 
@@ -135,9 +140,9 @@ Created by..[40823201](https://40823201.github.io/cp2019/content/index.html)
 
 						
 </t>
-<t tx="leo.20180902120523.19"># 查驗考試
+<t tx="leo.20180902120523.19"># w16查驗考試
 
- &lt;iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="800" src="https://www.youtube.com/channel/UCMESjWRK9WKDan_ilckn-9g" width="1903"&gt;
+ &lt;iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="800" src="https://www.youtube.com/watch?v=q4S4nXjf2yk&amp;t=3s" width="1903"&gt;
     &lt;/script&gt;
 &lt;/section&gt;
 </t>
