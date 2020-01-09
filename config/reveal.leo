@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by Leo: http://leoeditor.com/leo_toc.html -->
 <leo_file xmlns:leo="http://leoeditor.com/namespaces/leo-python-editor/1.1" >
-<leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
-<globals body_outline_ratio="0.5" body_secondary_ratio="0.5">
-	<global_window_position top="50" left="50" height="500" width="700"/>
-	<global_log_window_position top="0" left="0" height="0" width="0"/>
-</globals>
+<leo_header file_format="2"/>
+<globals/>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
@@ -13,29 +10,35 @@
 <v t="leo.20180902120538.2"><vh>@data qt-gui-plugin-style-sheet</vh></v>
 <v t="leo.20180902120538.3"><vh>@string initial_split_orientation = horizontal</vh></v>
 </v>
-<v t="leo.20180902120523.1" a="E"><vh>編輯 reveal</vh>
-<v t="leo.20180902120523.2" a="E"><vh>@path ./../reveal</vh>
-<v t="leo.20180902120523.3" a="E"><vh>@clean index.html</vh>
-<v t="leo.20180902120523.4" a="E"><vh>html</vh>
+<v t="leo.20180902120523.1"><vh>編輯 reveal</vh>
+<v t="leo.20180902120523.2"><vh>@path ./../reveal</vh>
+<v t="leo.20180902120523.3"><vh>@clean index.html</vh>
+<v t="leo.20180902120523.4"><vh>html</vh>
 <v t="leo.20180902120523.5"><vh>head</vh></v>
-<v t="leo.20180902120523.6" a="E"><vh>body</vh>
-<v t="leo.20180902120523.7" a="E"><vh>reveal div</vh>
-<v t="leo.20180902120523.8" a="E"><vh>slides div</vh>
-<v t="leo.20180902120523.9" a="E"><vh>封面投影片</vh>
+<v t="leo.20180902120523.6"><vh>body</vh>
+<v t="leo.20180902120523.7"><vh>reveal div</vh>
+<v t="leo.20180902120523.8"><vh>slides div</vh>
+<v t="leo.20180902120523.9"><vh>封面投影片</vh>
 <v t="leo.20180902120523.10"><vh>封面投影片內容</vh></v>
 </v>
-<v t="leo.20180902120523.11" a="E"><vh>快捷鍵</vh>
+<v t="leo.20180902120523.11"><vh>快捷鍵</vh>
 <v t="leo.20180902120523.12"><vh>投影片快捷鍵</vh></v>
 </v>
 <v t="leo.20180902120523.13"><vh>各式內容引用範例</vh>
-<v t="leo.20180902120523.14" a="E"><vh>導入數學符號與方程式</vh>
+<v t="leo.20180902120523.14"><vh>導入數學符號與方程式</vh>
 <v t="leo.20180902120523.15"><vh>LaTeX 格式方程式</vh></v>
 </v>
-<v t="leo.20180902120523.16" a="E"><vh>導入縮排程式碼</vh>
+<v t="leo.20180902120523.16"><vh>導入縮排程式碼</vh>
 <v t="leo.20180902120523.17"><vh>引用程式碼</vh></v>
 </v>
-<v t="leo.20180902120523.18" a="E"><vh>導入影片</vh>
+<v t="leo.20180902120523.18"><vh>導入影片</vh>
 <v t="leo.20180902120523.19"><vh>iframe 導入影片</vh></v>
+</v>
+<v t="leo.20200109134724.1"><vh>newHeadline</vh>
+<v t="leo.20200109134734.1"><vh>newHeadline</vh></v>
+</v>
+<v t="leo.20200109135741.1"><vh>newHeadline 1</vh>
+<v t="leo.20200109135857.1"><vh>newHeadline</vh></v>
 </v>
 </v>
 </v>
@@ -48,15 +51,14 @@
 </vnodes>
 <tnodes>
 <t tx="leo.20180902120523.1"></t>
-<t tx="leo.20180902120523.10">## CMSimfly 網際內容管理
-
-### KMOLab
+<t tx="leo.20180902120523.10">#CP2019 40823201 計算機程式
+### 陳品喬
 
 &lt;small&gt;
-Created by [KMOLab](http://lab.kmol.info/)
+Created by..[40823201](https://40823201.github.io/cp2019/content/index.html)
 &lt;/small&gt;
 
-[CMSimfly 網誌](./../blog/index.html)
+[CMSimfly 網誌](https://40823201.github.io/cp2019/blog/index.html)
 
 
 </t>
@@ -69,15 +71,15 @@ Created by [KMOLab](http://lab.kmol.info/)
 
 						
 </t>
-<t tx="leo.20180902120523.12"># 投影片快捷鍵
+<t tx="leo.20180902120523.12"># 目錄
 
-* 利用箭頭上下前後換頁
-* 按 f 鍵進入全螢幕模式 (full screen)
-* 按 s 鍵可以顯示投影片筆記 (show)
-* 按 o 鍵可以切換單張或全域檢視 (overview)
-* 按 b 或 . 鍵可以切換螢幕黑屏 (black)
-* 按 Esc 可以退出全螢幕或全域檢視 (Escape)
+* [溫度的轉換](https://40823201.github.io/cp2019/reveal/index.html#/2)
 
+* [各組溫度的轉換](https://40823201.github.io/cp2019/reveal/index.html#/2/1)
+
+* [查驗考試](https://40823201.github.io/cp2019/reveal/index.html#/2/2)
+
+* [心得](https://40823201.github.io/cp2019/reveal/index.html#/2/3)
 </t>
 <t tx="leo.20180902120523.13">&lt;section&gt;
 @others
@@ -95,12 +97,14 @@ Created by [KMOLab](http://lab.kmol.info/)
 
 						
 </t>
-<t tx="leo.20180902120523.15"># 數學符號與方程式
+<t tx="leo.20180902120523.15"># 溫度的轉換與方程式
 
-Inline math equations go in like so: $\omega = d\phi / dt$. Display
-math should get its own line and be put in in double-dollarsigns:
+&lt;iframe src="https://dartpad.github.io/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/new/Temp1&amp;theme=dark" width="800" height="550"&gt;&lt;/iframe&gt;
+    &lt;/script&gt;
+&lt;/section&gt;
 
-$$I = \int \rho R^{2} dV$$
+
+
 </t>
 <t tx="leo.20180902120523.16">&lt;section data-markdown&gt;
     &lt;script type="text/template"&gt;
@@ -113,33 +117,14 @@ $$I = \int \rho R^{2} dV$$
 
 						
 </t>
-<t tx="leo.20180902120523.17">## 利用 Markdown 寫投影片
-以下利用 Markdown 格式展示 Python 程式碼:
-```
-@language python
-# use threading and subprocess to threading the make process
-import os
-import subprocess
-import threading
+<t tx="leo.20180902120523.17"># 各組溫度格式方程式
 
-def domake():
-    
-    path = "../exposed/api/exposed"
-    ubuntu = "../Ubuntu"
-    
-    # create obj path
-    
-    if not os.path.exists(path+"/../obj"):
-        os.makedirs(path+"/../obj")
-    
-    subprocess.call(["make", "clean"], cwd=path)
-    subprocess.call("make", cwd=path)
-    subprocess.call(["cp", "{libslvs.so, _slvs.so, slvs.py}", ubuntu], cwd=path)
-    subprocess.call(["python3", "circle_ex.py"], cwd=path+"/"+ubuntu)
-    
-make = threading.Thread(target=domake)
-make.start()
-```
+ &lt;iframe src="https://dartpad.github.io/embed-html.html?gh_owner=40823201&amp;gh_repo=cp2019&amp;gh_path=downloads/new/Temp2&amp;theme=dark" width="800" height="550"&gt;&lt;/iframe&gt;
+    &lt;/script&gt;
+&lt;/section&gt;
+
+
+
 </t>
 <t tx="leo.20180902120523.18">&lt;section data-markdown&gt;
     &lt;script type="text/template"&gt;
@@ -150,11 +135,11 @@ make.start()
 
 						
 </t>
-<t tx="leo.20180902120523.19">## 使用 iframe 導入影片
+<t tx="leo.20180902120523.19"># 查驗考試
 
-### 導入影片 template
-
-&lt;iframe src="https://player.vimeo.com/video/183950627" width="640" height="492" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="800" src="https://www.youtube.com/channel/UCMESjWRK9WKDan_ilckn-9g" width="1903"&gt;
+    &lt;/script&gt;
+&lt;/section&gt;
 </t>
 <t tx="leo.20180902120523.2"></t>
 <t tx="leo.20180902120523.3">@language xml
@@ -326,5 +311,22 @@ QLineEdit#editorLabel {
 }</t>
 <t tx="leo.20180902120538.3">horizontal: body pane to the left
 vertical: body pane on the botton</t>
+<t tx="leo.20200109134724.1">&lt;section data-markdown&gt;
+    &lt;script type="text/template"&gt;
+@others
+    &lt;/script&gt;
+&lt;/section&gt;
+
+
+						
+</t>
+<t tx="leo.20200109134734.1"># 心得
+
+這次做的心得報告是介紹我們這一學期的學習成果，從一開始根本聽不懂老師在講什麼，到現在雖然還是不能完全理解，但是透過自己摸索和跟學長組員們討論，還是學到了很多，從一開始的hello到現在畫國旗，雖然網站一開始不是完全靠自己做出來，有同學幫忙，中間也有拖延遲交，還甚至認為機械不用學程式。學到現在才知道，學程式才可以拓展自己未來的領域。
+</t>
+<t tx="leo.20200109135741.1"></t>
+<t tx="leo.20200109135857.1"># 期末自評
+
+給自己打65分的原因，是因為自己其實表現不盡理想，很多都是請教和參考同學的才能做出來，中間也遇到很多問題，但其實都是老師上課提過的、同學遇過的，或是小細節自己沒注意到，覺得自己可以表現得更好，但給自己打及格是因為我自認我也努力了很多，從一開始的不懂，到處請教別人，但是總是請教別人也不是辦法，而且學習效果也不佳，把老師的影片拿出來看了很多遍，摸索了很久，才把自己的網頁做出來。覺得自己的努力值得65分。</t>
 </tnodes>
 </leo_file>

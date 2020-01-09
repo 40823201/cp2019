@@ -39,15 +39,14 @@ CMSimfly 網際內容管理
 <div class="slides">
 <section data-markdown>
     <script type="text/template">
-## CMSimfly 網際內容管理
-
-### KMOLab
+#CP2019 40823201 計算機程式
+### 陳品喬
 
 <small>
-Created by [KMOLab](http://lab.kmol.info/)
+Created by..[40823201](https://40823201.github.io/cp2019/content/index.html)
 </small>
 
-[CMSimfly 網誌](./../blog/index.html)
+[CMSimfly 網誌](https://40823201.github.io/cp2019/blog/index.html)
 
 
     </script>
@@ -57,15 +56,15 @@ Created by [KMOLab](http://lab.kmol.info/)
 						
 <section data-markdown>
     <script type="text/template">
-# 投影片快捷鍵
+# 目錄
 
-* 利用箭頭上下前後換頁
-* 按 f 鍵進入全螢幕模式 (full screen)
-* 按 s 鍵可以顯示投影片筆記 (show)
-* 按 o 鍵可以切換單張或全域檢視 (overview)
-* 按 b 或 . 鍵可以切換螢幕黑屏 (black)
-* 按 Esc 可以退出全螢幕或全域檢視 (Escape)
+* [溫度的轉換](https://40823201.github.io/cp2019/reveal/index.html#/2)
 
+* [各組溫度的轉換](https://40823201.github.io/cp2019/reveal/index.html#/2/1)
+
+* [查驗考試](https://40823201.github.io/cp2019/reveal/index.html#/2/2)
+
+* [心得](https://40823201.github.io/cp2019/reveal/index.html#/2/3)
     </script>
 </section>
 
@@ -75,12 +74,14 @@ Created by [KMOLab](http://lab.kmol.info/)
 <section data-markdown>
     <script type="text/template">
 <!-- 請注意, @others 不可以內縮 -->
-# 數學符號與方程式
+# 溫度的轉換與方程式
 
-Inline math equations go in like so: $\omega = d\phi / dt$. Display
-math should get its own line and be put in in double-dollarsigns:
+<iframe src="https://dartpad.github.io/embed-html.html?gh_owner=40823201&gh_repo=cp2019&gh_path=downloads/new/Temp1&theme=dark" width="800" height="550"></iframe>
+    </script>
+</section>
 
-$$I = \int \rho R^{2} dV$$
+
+
     </script>
 </section>
 
@@ -90,32 +91,14 @@ $$I = \int \rho R^{2} dV$$
 <section data-markdown>
     <script type="text/template">
 <!-- 請注意, @others 不可以內縮 -->
-## 利用 Markdown 寫投影片
-以下利用 Markdown 格式展示 Python 程式碼:
-```
-# use threading and subprocess to threading the make process
-import os
-import subprocess
-import threading
+# 各組溫度格式方程式
 
-def domake():
-    
-    path = "../exposed/api/exposed"
-    ubuntu = "../Ubuntu"
-    
-    # create obj path
-    
-    if not os.path.exists(path+"/../obj"):
-        os.makedirs(path+"/../obj")
-    
-    subprocess.call(["make", "clean"], cwd=path)
-    subprocess.call("make", cwd=path)
-    subprocess.call(["cp", "{libslvs.so, _slvs.so, slvs.py}", ubuntu], cwd=path)
-    subprocess.call(["python3", "circle_ex.py"], cwd=path+"/"+ubuntu)
-    
-make = threading.Thread(target=domake)
-make.start()
-```
+ <iframe src="https://dartpad.github.io/embed-html.html?gh_owner=40823201&gh_repo=cp2019&gh_path=downloads/new/Temp2&theme=dark" width="800" height="550"></iframe>
+    </script>
+</section>
+
+
+
     </script>
 </section>
 
@@ -124,16 +107,29 @@ make.start()
 						
 <section data-markdown>
     <script type="text/template">
-## 使用 iframe 導入影片
+# 查驗考試
 
-### 導入影片 template
-
-<iframe src="https://player.vimeo.com/video/183950627" width="640" height="492" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+ <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="800" src="https://www.youtube.com/channel/UCMESjWRK9WKDan_ilckn-9g" width="1903">
+    </script>
+</section>
     </script>
 </section>
 
 
 						
+<section data-markdown>
+    <script type="text/template">
+# 心得
+
+這次做的心得報告是介紹我們這一學期的學習成果，從一開始根本聽不懂老師在講什麼，到現在雖然還是不能完全理解，但是透過自己摸索和跟學長組員們討論，還是學到了很多，從一開始的hello到現在畫國旗，雖然網站一開始不是完全靠自己做出來，有同學幫忙，中間也有拖延遲交，還甚至認為機械不用學程式。學到現在才知道，學程式才可以拓展自己未來的領域。
+    </script>
+</section>
+
+
+						
+# 期末自評
+
+給自己打65分的原因，是因為自己其實表現不盡理想，很多都是請教和參考同學的才能做出來，中間也遇到很多問題，但其實都是老師上課提過的、同學遇過的，或是小細節自己沒注意到，覺得自己可以表現得更好，但給自己打及格是因為我自認我也努力了很多，從一開始的不懂，到處請教別人，但是總是請教別人也不是辦法，而且學習效果也不佳，把老師的影片拿出來看了很多遍，摸索了很久，才把自己的網頁做出來。覺得自己的努力值得65分。
 </section>
 
 </div>
