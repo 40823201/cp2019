@@ -147,7 +147,6 @@ Created by [40823201](https://40823201.github.io/cp2019/content/index.html)
 
  &lt;iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="800" src="https://www.youtube.com/watch?v=q4S4nXjf2yk&amp;t=3s" width="1903"&gt;
     &lt;/script&gt;
-&lt;/section&gt;
 </t>
 <t tx="leo.20180902120523.2"></t>
 <t tx="leo.20180902120523.3">@language xml
